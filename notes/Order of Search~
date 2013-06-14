@@ -1,0 +1,6 @@
+Python's order of searching:
+============================
+
+1) Local function scope
+2) Global scope
+3) Module scope

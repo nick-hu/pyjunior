@@ -1,0 +1,121 @@
+[j-hu_nicholas@client-206 ~]$ python
+Python 2.6.6 (r266:84292, Sep 11 2012, 08:34:23) 
+[GCC 4.4.6 20120305 (Red Hat 4.4.6-4)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> L = []
+>>> L.append(1)
+>>> L.append(2)
+>>> L.append(3)
+>>> L
+[1, 2, 3]
+>>> del L[3]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list assignment index out of range
+>>> del L[2]
+>>> L
+[1, 2]
+>>> L.pop(1)
+2
+>>> L
+[1]
+>>> L.append(1234)
+>>> L.append(12)
+>>> L.append(111111)
+>>> L
+[1, 1234, 12, 111111]
+>>> L.pop(2)
+12
+>>> L
+[1, 1234, 111111]
+>>> L.insert(2,12)
+>>> L
+[1, 1234, 12, 111111]
+>>> L.insert(3,12)
+>>> L
+[1, 1234, 12, 12, 111111]
+>>> L.count(12)
+2
+>>> L.extend([3,3,3,3,3,3,3])
+>>> L
+[1, 1234, 12, 12, 111111, 3, 3, 3, 3, 3, 3, 3]
+>>> L.count(3)
+7
+>>> L.append([4,4,4,4,4])
+>>> L
+[1, 1234, 12, 12, 111111, 3, 3, 3, 3, 3, 3, 3, [4, 4, 4, 4, 4]]
+>>> L.pop()
+[4, 4, 4, 4, 4]
+>>> L
+[1, 1234, 12, 12, 111111, 3, 3, 3, 3, 3, 3, 3]
+>>> L.insert(2,['hi','bye'])
+>>> L
+[1, 1234, ['hi', 'bye'], 12, 12, 111111, 3, 3, 3, 3, 3, 3, 3]
+>>> L(2(1))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'int' object is not callable
+>>> L(2)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'list' object is not callable
+>>> L[2[1]]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'int' object is unsubscriptable
+>>> L[2]
+['hi', 'bye']
+>>> L[2][1]
+'bye'
+>>> L.insert(4,['the','world'])
+>>> L
+[1, 1234, ['hi', 'bye'], 12, ['the', 'world'], 12, 111111, 3, 3, 3, 3, 3, 3, 3]
+>>> L[4][0]
+'the'
+>>> L
+[1, 1234, ['hi', 'bye'], 12, ['the', 'world'], 12, 111111, 3, 3, 3, 3, 3, 3, 3]
+>>> c = ['v','a','d']
+>>> c
+['v', 'a', 'd']
+>>> c.sort()
+>>> c
+['a', 'd', 'v']
+>>> c.sort(reverse=True)
+>>> c
+['v', 'd', 'a']
+>>> c.sort(reverse=T)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'T' is not defined
+>>> c.extend([3,6,2])
+>>> c
+['v', 'd', 'a', 3, 6, 2]
+>>> c.sort(reverse=True)
+>>> c
+['v', 'd', 'a', 6, 3, 2]
+>>> c.append(123)
+>>> c
+['v', 'd', 'a', 6, 3, 2, 123]
+>>> c.sort(reverse=True)
+>>> c
+['v', 'd', 'a', 123, 6, 3, 2]
+>>> c.append(555)
+>>> c.sort(reverse=True)
+>>> c
+['v', 'd', 'a', 555, 123, 6, 3, 2]
+>>> x = sorted(c)
+>>> x
+[2, 3, 6, 123, 555, 'a', 'd', 'v']
+>>> x.remove('a')
+>>> x
+[2, 3, 6, 123, 555, 'd', 'v']
+>>> x.append('d')
+>>> x
+[2, 3, 6, 123, 555, 'd', 'v', 'd']
+>>> x.remove('d')
+>>> x
+[2, 3, 6, 123, 555, 'v', 'd']
+>>> x.index('v')
+5
+>>> 
+

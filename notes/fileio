@@ -1,0 +1,103 @@
+Python 2.6.6 (r266:84292, Sep 11 2012, 08:34:23) 
+[GCC 4.4.6 20120305 (Red Hat 4.4.6-4)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> f = open('names.txt', 'r') # OPEN FILE
+>>> f
+<open file 'names.txt', mode 'r' at 0x7fdcc55fdc00> # FILE OBJECT
+>>> s = f.read() # READ WHOLE FILE AS STRING
+>>> print s
+sarah con
+ren & s
+tim
+robin and batman
+aaron swar
+hamedhelped
+bruce
+gogo
+o'ren i.
+beatrix kiddo
+
+>>> s
+"sarah con\nren & s\ntim\nrobin and batman\naaron swar\nhamedhelped\nbruce\ngogo\no'ren i.\nbeatrix kiddo\n"
+>>> l = f.readline() # POINTER AT END OF FILE
+>>> l
+''
+>>> f.seek(0) # SEEK 0TH BYTE OF FILE
+>>> l = f.readline()
+>>> l
+'sarah con\n'
+>>> l = f.readline() # READ NEXT LINE
+>>> l
+'ren & s\n'
+>>> l = f.readline()
+>>> l
+'tim\n'
+>>> 
+>>> f.seek(0)
+>>> L = f.readlines() # READ WHOLE FILE AS LIST OF STRINGS
+>>> L
+['sarah con\n', 'ren & s\n', 'tim\n', 'robin and batman\n', 'aaron swar\n', 'hamedhelped\n', 'bruce\n', 'gogo\n', "o'ren i.\n", 'beatrix kiddo\n']
+>>> 
+>>> f.seek(0)
+>>> for line in f: # FILES ARE ITERABLE
+...     print line,
+... 
+sarah con
+ren & s
+tim
+robin and batman
+aaron swar
+hamedhelped
+bruce
+gogo
+o'ren i.
+beatrix kiddo
+
+>>> f.close() # CLOSE FILE
+
+[j-hu_nicholas@client-206 ~]$ cat names.txt 
+sarah con
+ren & s
+tim
+robin and batman
+aaron swar
+hamedhelped
+bruce
+gogo
+o'ren i.
+beatrix kiddo
+[j-hu_nicholas@client-206 ~]$ head -n 3 names.txt # FIRST 3 LINES
+sarah con
+ren & s
+tim
+[j-hu_nicholas@client-206 ~]$ tail -n 3 names.txt # LAST 3 LINES
+gogo
+o'ren i.
+beatrix kiddo
+[j-hu_nicholas@client-206 ~]$ tac names.txt # CAT BACKWARDS
+beatrix kiddo
+o'ren i.
+gogo
+bruce
+hamedhelped
+aaron swar
+robin and batman
+tim
+ren & s
+sarah con
+[j-hu_nicholas@client-206 ~]$ grep on names.txt # MATCH "on"
+sarah con
+aaron swar
+[j-hu_nicholas@client-206 ~]$ cat names.txt | tr 'o' '$' # REPLACE (TRANSLATE)
+sarah c$n
+ren & s
+tim
+r$bin and batman
+aar$n swar
+hamedhelped
+bruce
+g$g$
+$'ren i.
+beatrix kidd$
+
+
