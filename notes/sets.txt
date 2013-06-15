@@ -10,25 +10,26 @@
 set([3, 4, 5, 6])
 >>> A
 set([1, 2, 3, 4])
->>> A|B
+
+
+>>> A|B  # UNION
 set([1, 2, 3, 4, 5, 6])
->>> A or B
+>>> A or B 
 set([1, 2, 3, 4])
 >>> A and B
 set([3, 4, 5, 6])
->>> A-B
+>>> A-B  # DIFFERENCE
 set([1, 2])
->>> B-A
+>>> B-A  # DIFFERENCE
 set([5, 6])
->>> A&B
+>>> A&B  # INTERSECTION
 set([3, 4])
->>> A+B # DOES NOT WORK!!!
+>>> A+B  # DOES NOT WORK!!!
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: unsupported operand type(s) for +: 'set' and 'set'
->>> A^B
+>>> A^B  # SYMMETRIC DIFFERENCE
 set([1, 2, 5, 6])
->>> (A|B)-(A&B)
+>>> (A|B)-(A&B)  # equivalent to symmetric difference
 set([1, 2, 5, 6])
->>> 
 

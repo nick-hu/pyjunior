@@ -1,0 +1,36 @@
+[j-hu_nicholas@client-206 ~]$ python
+Python 2.6.6 (r266:84292, Sep 11 2012, 08:34:23) 
+[GCC 4.4.6 20120305 (Red Hat 4.4.6-4)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> s = 'hello'
+>>> s[0]
+'h'
+>>> s[-1]
+'o'
+>>> s=s+' world'
+>>> s
+'hello world'
+>>> s[-1]
+'d'
+>>> s[0:3]
+'hel'
+>>> s[5:-1]
+' worl'
+>>> s[:]
+'hello world' 
+>>> t = [1,2,3,4]
+>>> u = t
+>>> u
+[1, 2, 3, 4]
+>>> t.append(5)
+>>> t
+[1, 2, 3, 4, 5]
+>>> u
+[1, 2, 3, 4, 5]   # LISTS ARE MUTABLE! STRINGS ARE IMMUTABLE!
+>>> t = [1,2,3,4]
+>>> u = t[:] # FULL SLICE
+>>> t.append(5)
+>>> t
+[1, 2, 3, 4, 5]
+>>> u
+[1, 2, 3, 4] # Taking a FULL SLICE copies the object!

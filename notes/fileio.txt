@@ -4,6 +4,9 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> f = open('names.txt', 'r') # OPEN FILE
 >>> f
 <open file 'names.txt', mode 'r' at 0x7fdcc55fdc00> # FILE OBJECT
+
+### READING ###
+
 >>> s = f.read() # READ WHOLE FILE AS STRING
 >>> print s
 sarah con
@@ -19,6 +22,9 @@ beatrix kiddo
 
 >>> s
 "sarah con\nren & s\ntim\nrobin and batman\naaron swar\nhamedhelped\nbruce\ngogo\no'ren i.\nbeatrix kiddo\n"
+
+### READING A LINE ###
+
 >>> l = f.readline() # POINTER AT END OF FILE
 >>> l
 ''
@@ -31,9 +37,14 @@ beatrix kiddo
 'ren & s\n'
 >>> l = f.readline()
 >>> l
-'tim\n'
->>> 
+'tim\n' 
+
+### SEEKING ###
+
 >>> f.seek(0)
+
+### READING ALL LINES ###
+
 >>> L = f.readlines() # READ WHOLE FILE AS LIST OF STRINGS
 >>> L
 ['sarah con\n', 'ren & s\n', 'tim\n', 'robin and batman\n', 'aaron swar\n', 'hamedhelped\n', 'bruce\n', 'gogo\n', "o'ren i.\n", 'beatrix kiddo\n']
@@ -53,7 +64,14 @@ gogo
 o'ren i.
 beatrix kiddo
 
->>> f.close() # CLOSE FILE
+### CLOSING ###
+
+>>> f.close()
+
+
+################
+### COMMANDS ###
+################
 
 [j-hu_nicholas@client-206 ~]$ cat names.txt 
 sarah con
@@ -66,14 +84,17 @@ bruce
 gogo
 o'ren i.
 beatrix kiddo
+
 [j-hu_nicholas@client-206 ~]$ head -n 3 names.txt # FIRST 3 LINES
 sarah con
 ren & s
 tim
+
 [j-hu_nicholas@client-206 ~]$ tail -n 3 names.txt # LAST 3 LINES
 gogo
 o'ren i.
 beatrix kiddo
+
 [j-hu_nicholas@client-206 ~]$ tac names.txt # CAT BACKWARDS
 beatrix kiddo
 o'ren i.
@@ -85,9 +106,11 @@ robin and batman
 tim
 ren & s
 sarah con
+
 [j-hu_nicholas@client-206 ~]$ grep on names.txt # MATCH "on"
 sarah con
 aaron swar
+
 [j-hu_nicholas@client-206 ~]$ cat names.txt | tr 'o' '$' # REPLACE (TRANSLATE)
 sarah c$n
 ren & s

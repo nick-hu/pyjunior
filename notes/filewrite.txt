@@ -24,6 +24,7 @@ beat
 rix 
 kidd
 o
+
 [j-hu_nicholas@client-206 ~]$ seq 1 10
 1
 2
@@ -35,16 +36,22 @@ o
 8
 9
 10
+
 [j-hu_nicholas@client-206 ~]$ seq 1 10 > nums.txt
 # OUTPUT REDIRECTION to a file called nums.txt: OVERWRITES FILE
+
 [j-hu_nicholas@client-206 ~]$ seq 1 10 >> names.txt
 # OUTPUT REDIRECTION to a file called names.txt APPENDS TO A FILE
+
 [j-hu_nicholas@client-206 ~]$ echo 'this line will be added to a file' >> names.txt
 # APPEND echo of 'this line...file' to names.txt
+
 [j-hu_nicholas@client-206 ~]$ cat names2.txt
 Hello world
+
 [j-hu_nicholas@client-206 ~]$ cat names2.txt >> names.txt
 # APPEND cat of names2.txt to names.txt
+
 [j-hu_nicholas@client-206 ~]$ cat names.txt
 sarah con
 ren & s
@@ -68,6 +75,7 @@ beatrix kiddo
 10
 this line will be added to a file
 Hello world
+
 [j-hu_nicholas@client-206 ~]$ paste names.txt nums.txt
 sarah con	1
 ren & s	2
@@ -91,6 +99,7 @@ beatrix kiddo	10
 10	
 this line will be added to a file	
 Hello world	
+
 [j-hu_nicholas@client-206 ~]$ paste -d " " names.txt nums.txt
 # Specify delimiter
 sarah con 1
@@ -115,6 +124,7 @@ beatrix kiddo 10
 10 
 this line will be added to a file 
 Hello world 
+
 [j-hu_nicholas@client-206 ~]$ paste -d "~~" names.txt nums.txt
 sarah con~1
 ren & s~2
@@ -138,6 +148,7 @@ beatrix kiddo~10
 10~
 this line will be added to a file~
 Hello world~
+
 [j-hu_nicholas@client-206 ~]$ wc -l names2.txt 
 1 names2.txt
 [j-hu_nicholas@client-206 ~]$ wc names2.txt 
@@ -191,8 +202,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 6
 7
 8
-9 |      writelines(sequence_of_strings) -> None.  Write the strings to the file.
-
+9
 10
 sarah con
 ren & s
@@ -212,6 +222,9 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> f = open('ttt.txt', 'w')
 >>> l = ['b','c','a']
 >>> l = ['bee stings','cat meow','ant walks']
+
+### WRITING LINES ###
+
 >>> f.writelines(l)
 >>> f.close()
 >>> 

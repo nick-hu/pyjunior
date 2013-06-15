@@ -1,8 +1,14 @@
 >>> d = {'a':111, 'b':222, 'c':333}
 >>> d
 {'a': 111, 'c': 333, 'b': 222}
+
+### KEYS ###
+
 >>> d.keys()
 ['a', 'c', 'b']
+
+### VALUES ###
+
 >>> d.values()
 [111, 333, 222]
 >>> for k in d.keys():
@@ -17,6 +23,9 @@ b
 111
 333
 222
+
+### ITEMS ###
+
 >>> d.items()
 [('a', 111), ('c', 333), ('b', 222)]
 >>> for k,v in d.items():
@@ -33,17 +42,26 @@ b 222
 222
 >>> d.values()
 [111, 333, 222]
+
+### ADDING KEY-VALUE PAIRS ###
+
 >>> d['e']=555
 >>> d['f']=666
 >>> d['aa']=122
 >>> d
 {'a': 111, 'aa': 122, 'c': 333, 'b': 222, 'e': 555, 'f': 666}
+
+### SORTING ###
+
 >>> x = sorted(d.keys())
 >>> x
 ['a', 'aa', 'b', 'c', 'e', 'f']
 >>> x = sorted(d.values())
 >>> x
 [111, 122, 222, 333, 555, 666]
+
+### POPPING ###
+
 >>> d.pop('aa')
 122
 >>> d
@@ -53,18 +71,14 @@ b 222
 >>> d
 {'a': 111, 'c': 333, 'b': 222, 'e': 555}
 >>> k = 'c'
+
+### DELETING ###
+
 >>> del d[k]
 >>> d
 {'a': 111, 'b': 222, 'e': 555}
->>> v = del d['e']
-  File "<stdin>", line 1
-    v = del d['e']
-          ^
-SyntaxError: invalid syntax
 >>> v = d.pop('e')
 >>> v
 555
 >>> d
 {'a': 111, 'b': 222}
->>> 
-
