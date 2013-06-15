@@ -1,6 +1,0 @@
-Python's order of searching:
-============================
-
-1) Local function scope - variables defined in the function
-2) Global scope - variables defined in the main body of the program
-3) Module scope - variables defined in modules
