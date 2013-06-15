@@ -1,0 +1,118 @@
+[username@hostname directory]$
+[j-hu_nicholas@client-206 ~]$ host cbc.ca 
+#
+# This is a DNS (Domain Name Server) lookup
+# DNS translates hostnames (e.g. cbc.ca) to an IP address
+# This translation is called "RESOLVING"
+#
+# Your ISP (Internet Service Provider) has DNS servers
+# Some DNS servers have been "poisoned" (redirection to a fake site)
+#
+cbc.ca has address 159.33.3.85 # IP ADDRESS
+cbc.ca mail is handled by 20 alt2.aspmx.l.google.com.
+cbc.ca mail is handled by 30 aspmx2.googlemail.com.
+cbc.ca mail is handled by 30 aspmx3.googlemail.com.
+cbc.ca mail is handled by 10 aspmx.l.google.com.
+cbc.ca mail is handled by 20 alt1.aspmx.l.google.com.
+
+[j-hu_nicholas@client-206 ~]$ ifconfig
+eth0      Link encap:Ethernet  HWaddr 00:23:AE:9F:1E:48  
+          inet addr:192.168.101.6  Bcast:192.168.101.255  Mask:255.255.255.0
+          #
+          # inet addr is your IP ADDRESS
+          # For this room, the address will be of the format 192.168.100.--- or 192.168.101.---
+          #
+          inet6 addr: fe80::223:aeff:fe9f:1e48/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1105562 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1044218 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:1135633073 (1.0 GiB)  TX bytes:749196742 (714.4 MiB)
+          Interrupt:21 Memory:fe6e0000-fe700000 
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:109 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:109 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:8004 (7.8 KiB)  TX bytes:8004 (7.8 KiB)
+          [j-hu_nicholas@client-206 ~]$ ip addr
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 16436 qdisc noqueue state UNKNOWN 
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP qlen 1000
+    link/ether 00:23:ae:9f:1e:48 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.101.6/24 brd 192.168.101.255 scope global eth0
+    inet6 fe80::223:aeff:fe9f:1e48/64 scope link 
+       valid_lft forever preferred_lft forever
+
+[j-hu_nicholas@client-206 ~]$ ip addr # alternative/new way
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 16436 qdisc noqueue state UNKNOWN 
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP qlen 1000
+    link/ether 00:23:ae:9f:1e:48 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.101.6/24 brd 192.168.101.255 scope global eth0
+	#
+	# inet addr ^^ is your IP ADDRESS
+    	#
+    inet6 fe80::223:aeff:fe9f:1e48/64 scope link 
+       valid_lft forever preferred_lft forever
+
+### SSH BASICS #####################################################
+
+CLIENT A				CLIENT B
+Joe is logged in		Joe has an account on this machine
+
+All computers in this room have your username AND
+a generic username (c--). 
+Multiple users can be logged in to a computer at once.
+
+Joe types in: 
+[joe@clientA ~]$ ssh joe@clientB
+Careful: DNS posioning or "man-in-the-middle" interception may occur!
+While entering the password, no screen output will appear!
+
+CLIENT A	---Encrypted connection-->		CLIENT B
+Local machine						Remote machine
+
+SSH uses the power/resources of the computer SSH'ed to (i.e. CLIENT B)
+
+The terminal window will change to:
+[joe@clientB ~]$
+
+Useful commands:
+================
+"ssh -X hostname" will allow for SSH with X11 (display server) forwarding
+"wall text" will broadcast a message to all users logged in
+"w" will list all users logged in
+"ssh username@localhost" will allow for SSH into your own (local) machine
+
+### FILE TRANSFER ##################################################
+
+Copying a file from a local machine to a remote machine is called PUSHING
+Copying a file from a remote machine to a local machine is called PULLING
+
+(When making a file/directory avoid: " \/&?")
+
+[joe@clientA ~]$ cp file dir/ 			# Regular copy (from .)
+[joe@clientA ~]$ scp joe@clientB:/dir/file . 	# Secure copy (pull to .)
+[joe@clientA ~]$ scp file joe@clientB:/dir/	# Secure copy (push from .)
+[joe@clientA ~]$ scp joe@clientB:/dir/file joe@clientC:/dir/	
+# Secure copy between two remote machines
+
+[joe@clientA ~]$ mkdir mnt			# Create a mount directory
+[joe@clientA ~]$ sshfs joe@clientB:/dir mnt	# Mount remote dir to local
+# The directory dir has NOT been copied, but MOUNTED (SSH File System)
+# sshfs is an encrypted userspace file system for members of FUSE
+# FUSE is the Filesystem in Userspace
+[joe@clientA ~]$ fusermount -u mnt		# Unmount mnt directory
+
+####################################################################
+

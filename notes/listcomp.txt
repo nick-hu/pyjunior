@@ -1,0 +1,14 @@
+>>> import random
+>>> nums = [random.randrange(1, 50) for n in range(6)] # list comp.
+>>> nums
+[26, 45, 43, 34, 5, 15]
+#####################################
+l = [x for y in z] is equivalent to:
+
+l = []
+for y in z:
+	l.append(x)
+#####################################
+>>> nums = random.sample(range(1, 50), 6) # no repeats
+>>> nums
+[16, 18, 17, 29, 10, 33]
