@@ -24,6 +24,8 @@ misc: Miscellaneous
 
 networking: Networking with socket module clients and servers
 
+notes: Course notes on various topics
+
 pystdlib: Explorations of the standard library, built-in functions and methods
 
 sockreview: Concise review of Python sockets
